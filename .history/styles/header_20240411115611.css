@@ -82,10 +82,7 @@
 .search-button,
 .voice-search-button,
 .upload-icon-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    
 }
 .search-icon {
     height: 25px;
