@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1712807771125,
@@ -12,6 +12,30 @@
                 {
                     "date": 1712807807086,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,9 +81,12 @@\n \n .search-button,\n .voice-search-button,\n .upload-icon-container{\n-    \n+    display: flex;\n+    justify-content: center;\n+    align-items: center;\n+    position: relative;\n }\n .search-icon {\n     height: 25px;\n     margin-top: 4px;\n"
+                },
+                {
+                    "date": 1712913355801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -86,8 +86,14 @@\n     justify-content: center;\n     align-items: center;\n     position: relative;\n }\n+\n+.search-button .tooltip,\n+.voice-search-button .tooltip,\n+.upload-icon-container .tooltip{\n+    \n+}\n .search-icon {\n     height: 25px;\n     margin-top: 4px;\n }\n"
+                },
+                {
+                    "date": 1712913630699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,8 +90,11 @@\n \n .search-button .tooltip,\n .voice-search-button .tooltip,\n .upload-icon-container .tooltip{\n+    font-family: Roboto,Arial;\n+    position: absolute;\n+    background-color: gray;\n     \n }\n .search-icon {\n     height: 25px;\n"
+                },
+                {
+                    "date": 1712914014115,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -93,9 +93,19 @@\n .upload-icon-container .tooltip{\n     font-family: Roboto,Arial;\n     position: absolute;\n     background-color: gray;\n-    \n+    color: white;\n+    padding-top: 4px;\n+    padding-bottom: 4px;\n+    padding-left: 8px;\n+    border-radius: 2px;\n+    font-size: 12px;\n+    bottom: -30px;\n+    opacity: 0;\n+    transition: opacity 0.15s;\n+    pointer-events: none;\n+    white-space: nowrap;\n }\n .search-icon {\n     height: 25px;\n     margin-top: 4px;\n"
+                },
+                {
+                    "date": 1712914099834,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -105,8 +105,14 @@\n     transition: opacity 0.15s;\n     pointer-events: none;\n     white-space: nowrap;\n }\n+\n+.search-button:hover .tooltip,\n+.voice-search-button:hover .tooltip,\n+.upload-icon-container:hover .tooltip{\n+    opacity: 1;\n+}\n .search-icon {\n     height: 25px;\n     margin-top: 4px;\n }\n"
+                },
+                {
+                    "date": 1712914114511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -113,9 +113,9 @@\n     opacity: 1;\n }\n .search-icon {\n     height: 25px;\n-    margin-top: 4px;\n+ \n }\n \n \n .voice-search-button{\n"
+                },
+                {
+                    "date": 1712914596549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,179 @@\n+.header {\n+    height: 55px;\n+    display: flex;\n+    flex-direction: row;\n+    justify-content: space-between;\n+\n+    position: fixed;\n+    top: 0;\n+    left: 0;\n+    left: 0;\n+    right: 0;\n+\n+    background-color: white;\n+    border-bottom-width: 1px ;\n+    border-bottom-style: solid;\n+    border-bottom-color: rgb(228, 228, 228) ;\n+    \n+\n+}\n+\n+\n+.left-section {\n+\n+    display: flex;\n+    align-items: center;\n+}\n+\n+.hamburger-menu {\n+\n+    height: 24px;\n+    margin-left: 24px;\n+    margin-right: 24px;\n+}\n+\n+\n+.youtube-logo {\n+    height: 20px ;\n+}\n+\n+.middle-section {\n+    flex: 1;\n+    margin-left: 70px;\n+    margin-right:  35px;\n+    max-width: 500px;\n+    display: flex;\n+    align-items: center;\n+}\n+\n+.search-bar{\n+    flex: 1;\n+    height: 36px;\n+    padding-left: 10px;\n+    font-size: 16px;\n+    border-width: 1px;\n+    border-style: solid;\n+    border-color: rgb(192, 192, 192);\n+    border-radius: 2px;\n+    box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);\n+    width: 0;\n+\n+}   \n+\n+\n+\n+.search-bar::placeholder {\n+    font-family: Roboto,Arial;\n+    font-size: 16px;\n+}\n+\n+\n+.search-button{\n+    height: 40px;\n+    width: 66px;\n+    background-color: rgb(240, 240, 240);\n+    border-width: 1px;\n+    border-style: solid;\n+    border-color: rgb(192, 192, 192);\n+    margin-left: -1px;\n+    margin-right: 10px;\n+}\n+\n+.search-button,\n+.voice-search-button,\n+.upload-icon-container{\n+    display: flex;\n+    justify-content: center;\n+    align-items: center;\n+    position: relative;\n+}\n+\n+.search-button .tooltip,\n+.voice-search-button .tooltip,\n+.upload-icon-container .tooltip{\n+    font-family: Roboto,Arial;\n+    position: absolute;\n+    background-color: gray;\n+    color: white;\n+    padding-top: 4px;\n+    padding-bottom: 4px;\n+    padding-left: 8px;\n+    border-radius: 2px;\n+    font-size: 12px;\n+    bottom: -30px;\n+    opacity: 0;\n+    transition: opacity 0.15s;\n+    pointer-events: none;\n+    white-space: nowrap;\n+}\n+\n+.search-button:hover .tooltip,\n+.voice-search-button:hover .tooltip,\n+.upload-icon-container:hover .tooltip{\n+    opacity: 1;\n+}\n+.search-icon {\n+    height: 25px;\n+ \n+}\n+\n+\n+.voice-search-button{\n+    height: 40px;\n+    width: 40px;\n+    border-radius: 20px;\n+    border: none;\n+    background-color: rgb(245, 245, 245);\n+}\n+\n+\n+.video-search-icon {\n+    height: 24px;\n+  \n+}\n+\n+.right-section {\n+    width: 180px;\n+    margin-right: 20px;\n+    display: flex;\n+    align-items: center;\n+    justify-content: space-between;\n+    flex-shrink: 0;\n+\n+}\n+\n+.upload-icon {\n+    height: 24px;\n+}\n+\n+.youtube-apps-icon{\n+    height: 24px;\n+}\n+\n+\n+.notifications-icon {\n+    height: 24px;\n+}\n+\n+.notifications-icon-container {\n+    position: relative;\n+}\n+\n+.notifications-count{\n+    position: absolute;\n+    top: -2px;\n+    right: -5px;\n+    background-color: rgb(200, 0, 0);\n+    color: white;\n+    font-family: Roboto,Arial;\n+    font-size: 11px;\n+    padding-left: 15px;\n+    padding-right: 5px;\n+    padding-top: 2px;\n+    padding-bottom: 2px;\n+    border-radius: 10px;\n+}\n+.current-user-picture {\n+    height: 32px;\n+    border-radius: 16px ;\n+}\n"
                 }
             ],
             "date": 1712807771125,
